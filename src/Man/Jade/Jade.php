@@ -5,7 +5,7 @@ class Jade
     {
         $jade_bin = "/usr/bin/jade"; // if you don't know what it is type `which jade` in your terminal
         $jade_tpl_path = app_path() . '/jade/'; //enter your template path here,defaulted for laravel at app/jade/
-        $jadefile = rtrim($jadefile,".jade"); // work for people who use ".jade" extension
+        $jadefile = preg_replace('/\.jade$/i','',trim($jadefile)); // work for people who use ".jade" extension
 
         /*just in case people do something funky and break the code*/
         $jade_bin = escapeshellarg($jade_bin);
